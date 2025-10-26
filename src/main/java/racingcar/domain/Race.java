@@ -64,4 +64,8 @@ public class Race {
     public boolean isFinished() {
         return finishedRound >= MAX_ROUNDS;
     }
+
+    public int getLastRound() {
+        return finishedRound;
+    }
 }
