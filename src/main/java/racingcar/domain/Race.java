@@ -43,6 +43,24 @@ public class Race {
         return List.copyOf(CARS);
     }
 
+    public List<String> getWinners() {
+        if (!isFinished()) {
+            throw new IllegalStateException("경주가 아직 진행중입니다.");
+        }
+
+        // 최다 기록 탐색
+        final int maxPosition = CARS.stream()
+                .max(Comparator.comparingInt(Car::getPosition))
+                .map(Car::getPosition)
+                .orElse(0);
+
+        // 최다기록과 동일한 자동차들 검색 및 반환
+        return CARS.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .toList();
+    }
+
     public boolean isFinished() {
         return finishedRound >= MAX_ROUNDS;
     }
