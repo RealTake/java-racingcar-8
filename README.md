@@ -1,7 +1,5 @@
 # java-racingcar-precourse
 
----
-
 ## 기능 목록
 
 ### 1. 입력 기능
